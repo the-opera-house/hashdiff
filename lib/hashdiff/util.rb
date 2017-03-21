@@ -82,6 +82,18 @@ module HashDiff
 
   # @private
   #
+  # ensure that the node of hash by given path parts is not nil
+  def self.ensure_node(hash, parts)
+    temp = hash
+    parts.each do |part|
+      temp[part] ||= {}
+      temp = temp[part]
+    end
+    hash
+  end
+
+  # @private
+  #
   # check for equality or "closeness" within given tolerance
   def self.compare_values(obj1, obj2, options = {})
     if (options[:numeric_tolerance].is_a? Numeric) &&

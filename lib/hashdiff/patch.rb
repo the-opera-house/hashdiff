@@ -20,6 +20,7 @@ module HashDiff
       parts = decode_property_path(change[1], delimiter)
       last_part = parts.last
 
+      obj = ensure_node(obj, parts[0, parts.size-1])
       parent_node = node(obj, parts[0, parts.size-1])
 
       if change[0] == '+'

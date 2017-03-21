@@ -10,6 +10,9 @@
 /.yardoc
 /Gemfile.lock
 
+# Ignore rbenv config
+.ruby-version
+
 *.swp
 *.bak
 *.gem
